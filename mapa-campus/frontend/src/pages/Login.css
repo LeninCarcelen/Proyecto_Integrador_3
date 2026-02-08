@@ -1,0 +1,123 @@
+.login-page {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #758aff 0%, #f7fbff 100%);
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(11,61,145,0.12);
+  padding: 28px 28px 18px 28px;
+  transform-origin: center center;
+  animation: floatIn 450ms ease both;
+}
+
+.brand {
+  background: linear-gradient(90deg, #0b3d91 0%, #2b7be3 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 12px;
+  letter-spacing: 0.6px;
+}
+
+h2 {
+  margin: 6px 0 18px 0;
+  color: #0b3d91;
+  font-size: 1.4rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 8px;
+  border: none;
+  border-bottom: 2px solid #e1e7f5;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+
+.input-group input:focus {
+  border-bottom-color: #2b7be3;
+  transform: translateY(-2px);
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #0b3d91, #2b7be3);
+  transition: width 260ms ease;
+}
+
+.input-group input:focus + .underline {
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0b3d91 0%, #2b7be3 100%);
+  color: #fff;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(43,123,227,0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(43,123,227,0.22);
+}
+
+.error {
+  color: #b00020;
+  margin-top: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.995); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* shake animation for wrong credentials */
+.shake {
+  animation: shake 600ms ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+@media (max-width: 480px) {
+  .login-card { padding: 20px; border-radius: 8px; }
+  h2 { font-size: 1.2rem; }
+}
