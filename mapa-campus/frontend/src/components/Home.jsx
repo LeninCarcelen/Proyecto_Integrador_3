@@ -45,7 +45,7 @@ function Home() {
 
       <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
         <div className="card">
-          <h3>📍 Ubicaciones ({ubicaciones.length})</h3>
+          <h3> Ubicaciones ({ubicaciones.length})</h3>
           {loading ? (
             <p>Cargando...</p>
           ) : (
@@ -65,7 +65,7 @@ function Home() {
         </div>
 
         <div className="card">
-          <h3>🚨 Alertas ({alertas.length})</h3>
+          <h3> Alertas ({alertas.length})</h3>
           {loading ? (
             <p>Cargando...</p>
           ) : alertas.length > 0 ? (
@@ -91,4 +91,5 @@ function Home() {
     </div>
   );
 }
+
 export default Home;

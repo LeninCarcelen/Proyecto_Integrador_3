@@ -21,19 +21,19 @@ export default function CrearUsuario() {
     e.preventDefault();
     try {
       setLoading(true);
-      console.log('📤 Enviando datos:', formData);
+      console.log(' Enviando datos:', formData);
       
       const response = await apiCall('/usuarios', {
         method: 'POST',
         body: JSON.stringify(formData)
       });
       
-      console.log('✅ Respuesta del servidor:', response);
-      setMessage('✓ Usuario creado');
+      console.log(' Respuesta del servidor:', response);
+      setMessage(' Usuario creado');
       setFormData({ nombre: '', correo: '', password: '', id_rol: 2 });
     } catch (error) {
-      console.error('❌ Error en la solicitud:', error);
-      setMessage('✗ Error: ' + error.message);
+      console.error(' Error en la solicitud:', error);
+      setMessage(' Error: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -87,4 +87,5 @@ export default function CrearUsuario() {
       {message && <p className={message.includes('✓') ? '' : 'error'}>{message}</p>}
     </form>
   );
+
 }

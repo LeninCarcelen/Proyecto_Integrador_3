@@ -84,7 +84,7 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
     try {
       const response = await fetch('http://localhost:3000/api/contenedores');
       const data = await response.json();
-      console.log('📦 Contenedores cargados:', data.data?.length);
+      console.log(' Contenedores cargados:', data.data?.length);
       setContenedores(data.data || []);
     } catch (err) {
       console.error('Error cargando contenedores:', err);
@@ -101,7 +101,7 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
     try {
       const idUsuario = localStorage.getItem('id_usuario');
       
-      console.log('📝 Creando contenedor:', { idUsuario, tipo: tipoSeleccionado, latlng });
+      console.log(' Creando contenedor:', { idUsuario, tipo: tipoSeleccionado, latlng });
 
       const response = await fetch('http://localhost:3000/api/contenedores', {
         method: 'POST',
@@ -116,17 +116,17 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
 
       const data = await response.json();
 
-      console.log('✅ Respuesta contenedor:', data);
+      console.log(' Respuesta contenedor:', data);
 
       if (data.success) {
-        alert('✅ Contenedor creado');
+        alert(' Contenedor creado');
         cargarContenedores();
       } else {
-        alert('❌ Error: ' + data.error);
+        alert(' Error: ' + data.error);
       }
     } catch (err) {
-      console.error('❌ Error:', err);
-      alert('❌ Error: ' + err.message);
+      console.error(' Error:', err);
+      alert(' Error: ' + err.message);
     }
   };
 
@@ -134,7 +134,7 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
     try {
       const idUsuario = localStorage.getItem('id_usuario');
       
-      console.log('📝 Creando alerta desde mapa:', { idUsuario, latlng });
+      console.log(' Creando alerta desde mapa:', { idUsuario, latlng });
 
       const response = await fetch('http://localhost:3000/api/alertas', {
         method: 'POST',
@@ -150,21 +150,21 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
 
       const data = await response.json();
 
-      console.log('✅ Respuesta alerta:', data);
+      console.log(' Respuesta alerta:', data);
 
       if (data.success) {
-        alert('✅ Alerta creada exitosamente');
+        alert(' Alerta creada exitosamente');
         
         setTimeout(() => {
           window.location.reload();
         }, 500);
         
       } else {
-        alert('❌ Error: ' + data.error);
+        alert(' Error: ' + data.error);
       }
     } catch (err) {
-      console.error('❌ Error:', err);
-      alert('❌ Error: ' + err.message);
+      console.error(' Error:', err);
+      alert(' Error: ' + err.message);
     }
   };
 
@@ -250,7 +250,7 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
           const lng = a.longitud || (a.coordenadas && a.coordenadas.longitud);
           
           if (!lat || !lng || isNaN(lat) || isNaN(lng)) {
-            console.warn('⚠️ Alerta sin coordenadas válidas:', a);
+            console.warn(' Alerta sin coordenadas válidas:', a);
             return null;
           }
           
@@ -261,7 +261,7 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
               icon={alertaIcon}
             >
               <Popup>
-                <strong>🚨 Alerta</strong>
+                <strong> Alerta</strong>
                 <br />
                 Tipo: {a.tipo_alerta || 'N/A'}
                 <br />
@@ -282,5 +282,6 @@ function Mapa({ rol, tipoSeleccionado, ubicaciones = [], alertas = [] }) {
     </div>
   );
 }
+
 
 export default Mapa;
