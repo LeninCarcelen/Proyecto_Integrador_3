@@ -1,0 +1,17 @@
+html, body, #root {height:100%;}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --footer-height: 120px; /* reserve space for fixed footer */
+}
+
+/* Footer is now inline and follows the page flow, remove reserved padding */
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
