@@ -43,11 +43,11 @@ function Limpieza() {
       });
 
       if (response.ok) {
-        alert('✅ Estado actualizado');
+        alert(' Estado actualizado');
         cargarDatos();
       }
     } catch (err) {
-      alert('❌ Error: ' + err.message);
+      alert(' Error: ' + err.message);
     }
   };
 
@@ -64,7 +64,7 @@ function Limpieza() {
       </div>
 
       <div className="card">
-        <h3>🚨 Alertas Activas ({alertas.length})</h3>
+        <h3> Alertas Activas ({alertas.length})</h3>
 
         {loading ? (
           <p>Cargando...</p>
@@ -97,5 +97,6 @@ function Limpieza() {
     </div>
   );
 }
+
 
 export default Limpieza;
