@@ -25,8 +25,8 @@ function Usuario() {
       const ubData = await ubRes.json();
       const alertasData = await alertasRes.json();
 
-      console.log('📍 Ubicaciones:', ubData.data?.length);
-      console.log('🚨 Alertas totales:', alertasData.data?.length);
+      console.log(' Ubicaciones:', ubData.data?.length);
+      console.log(' Alertas totales:', alertasData.data?.length);
 
       setUbicaciones(ubData.data || []);
       
@@ -34,7 +34,7 @@ function Usuario() {
         a => a.estado !== 'resuelta'
       );
       
-      console.log('🚨 Alertas activas:', alertasActivas.length);
+      console.log(' Alertas activas:', alertasActivas.length);
       setAlertas(alertasActivas);
     } catch (err) {
       console.error('Error:', err);
@@ -53,7 +53,7 @@ function Usuario() {
         />
       </div>
       <div className="card">
-        <h3>📊 Estado</h3>
+        <h3> Estado</h3>
         <p>Ubicaciones: {ubicaciones.length}</p>
         <p>Alertas activas: {alertas.length}</p>
       </div>
@@ -61,4 +61,5 @@ function Usuario() {
     </div>
   );
 }
+
 export default Usuario;
