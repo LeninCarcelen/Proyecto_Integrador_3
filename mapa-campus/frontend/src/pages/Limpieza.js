@@ -20,13 +20,13 @@ function Limpieza() {
       ]);
       const ubData = await ubRes.json();
       const alertasData = await alertasRes.json();
-      console.log('📍 Ubicaciones:', ubData.data?.length);
-      console.log('🚨 Alertas totales:', alertasData.data?.length);
+      console.log(' Ubicaciones:', ubData.data?.length);
+      console.log(' Alertas totales:', alertasData.data?.length);
       setUbicaciones(ubData.data || []);
       const alertasActivas = (alertasData.data || []).filter(
         a => a.estado !== 'resuelta'
       );
-      console.log('🚨 Alertas activas:', alertasActivas.length);
+      console.log(' Alertas activas:', alertasActivas.length);
       setAlertas(alertasActivas);
     } catch (err) {
       console.error('Error:', err);
@@ -36,27 +36,27 @@ function Limpieza() {
   };
   const cambiarEstado = async (id, nuevoEstado) => {
     try {
-      console.log('🔄 Cambiando estado:', { id, nuevoEstado });
+      console.log(' Cambiando estado:', { id, nuevoEstado });
       const response = await fetch(`http://localhost:3000/api/alertas/${id}/estado`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nuevo_estado: nuevoEstado })
       });
       const data = await response.json();
-      console.log('✅ Respuesta:', data);
+      console.log(' Respuesta:', data);
       if (data.success) {
-        alert('✅ Estado actualizado');
+        alert(' Estado actualizado');
         if (nuevoEstado === 'resuelta') {
           setAlertas(prev => prev.filter(a => a._id !== id));
         } else {
           cargarDatos();
         }
       } else {
-        alert('❌ Error: ' + data.error);
+        alert(' Error: ' + data.error);
       }
     } catch (err) {
       console.error('Error:', err);
-      alert('❌ Error: ' + err.message);
+      alert(' Error: ' + err.message);
     }
   };
   return (
@@ -70,7 +70,7 @@ function Limpieza() {
         />
       </div>
       <div className="card">
-        <h3>🚨 Alertas Activas ({alertas.length})</h3>
+        <h3> Alertas Activas ({alertas.length})</h3>
         {loading ? (
           <p>Cargando alertas...</p>
         ) : alertas.length > 0 ? (
@@ -123,4 +123,5 @@ function Limpieza() {
     </div>
   );
 }
+
 export default Limpieza;
